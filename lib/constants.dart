@@ -33,3 +33,5 @@ List<SettingModel> settings = [
   SettingModel(icon: AppStrings.editIcon, title: 'Edit'),
   SettingModel(icon: AppStrings.deleteIcon, title: 'Delete'),
 ];
+
+const String apiKey = 'AIzaSyCkiS30aRwUXUrA1G9on9QqISGTB-ApkrY';

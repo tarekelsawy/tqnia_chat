@@ -18,7 +18,7 @@ class BuildContainerOfTheMessage extends StatelessWidget {
         child: Container(
           // alignment: isQuestion ? Alignment.centerRight : Alignment.centerLeft,
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-          width: isQuestion ? 267.w : 295.w,
+          constraints: BoxConstraints(maxWidth:isQuestion ? 267.w : 295.w),
           decoration: BoxDecoration(
             color: isQuestion
                 ? AppColor.secondaryColor
