@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tqnia_chat/models/message_model.dart';
 import 'package:tqnia_chat/views/routes/routes.dart';
 import 'package:tqnia_chat/views/screens/chat_screen.dart';
 import 'package:tqnia_chat/views/screens/home_screen.dart';
@@ -18,7 +19,8 @@ class AppPages {
       case AppRoutes.home:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
       case AppRoutes.chat:
-        return MaterialPageRoute(builder: (context) => const ChatScreen());
+
+        return MaterialPageRoute(builder: (context) =>  ChatScreen(messages: rs.arguments! as List<MessageModel>,));
     }
     return undefinedRoute();
   }

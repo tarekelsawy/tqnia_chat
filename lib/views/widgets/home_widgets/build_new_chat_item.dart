@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tqnia_chat/core/utils/extentions.dart';
+import 'package:tqnia_chat/models/message_model.dart';
 
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
@@ -15,7 +16,7 @@ class BuildNewChatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.goToChat();
+        context.goToChat(messages:<MessageModel>[] );
       },
       child: Container(
         height: 52.h,

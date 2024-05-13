@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tqnia_chat/controllers/home_cubit/home_cubit.dart';
 import 'package:tqnia_chat/core/utils/app_colors.dart';
 
 import '../../../core/utils/app_strings.dart';
@@ -10,6 +12,7 @@ class BuildHomeFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeCubit cubit = context.read<HomeCubit>();
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
       height: 315.h,
@@ -21,7 +24,7 @@ class BuildHomeFooter extends StatelessWidget {
       child: Column(
         children: [
           BuildFooterItem(
-              onTap: () {},
+              onTap: () =>cubit.clearChat(),
               text: 'Clear conversations',
               icon: AppStrings.deleteIcon),
           BuildFooterItem(
@@ -31,7 +34,7 @@ class BuildHomeFooter extends StatelessWidget {
           BuildFooterItem(
               onTap: () {}, text: 'Updates & FAQ', icon: AppStrings.faqIcon),
           BuildFooterItem(
-              onTap: () {}, text: 'Logout', icon: AppStrings.logOutIcon),
+              onTap: () =>cubit.logOut(context), text: 'Logout', icon: AppStrings.logOutIcon),
         ],
       ),
     );

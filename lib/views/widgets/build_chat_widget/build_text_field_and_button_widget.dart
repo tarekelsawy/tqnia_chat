@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tqnia_chat/controllers/chat_cubit/chat_cubit.dart';
 
+import '../../../controllers/chat_cubit/chat_states.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/styles.dart';
@@ -15,7 +16,7 @@ class BuildTextFieldAndButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ChatCubit cubit = BlocProvider.of(context);
     return Container(
-      margin: EdgeInsets.only(top: 44.h, bottom: 61.h, left: 20.w, right: 20.w),
+      margin: EdgeInsets.only(top: 10.h, bottom: 20.h, left: 20.w, right: 20.w),
       padding: EdgeInsets.symmetric(
         horizontal: 8.w,
       ),
@@ -47,10 +48,14 @@ class BuildTextFieldAndButtonWidget extends StatelessWidget {
             SizedBox(
               width: 8.w,
             ),
-            InkWell(
-                onTap: () => cubit.setQuestionMessage(),
-                child: FittedImage(
-                    height: 36.h, width: 36.w, path: AppStrings.sendButton)),
+            BlocBuilder<ChatCubit, ChatStates>(
+              builder: (context, state) => InkWell(
+                  onTap: state is SentMessageLoadingState
+                      ? null
+                      : () => cubit.setQuestionMessage(),
+                  child: FittedImage(
+                      height: 36.h, width: 36.w, path: AppStrings.sendButton)),
+            ),
           ],
         ),
       ),

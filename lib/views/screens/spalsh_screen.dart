@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tqnia_chat/core/utils/app_strings.dart';
+import 'package:tqnia_chat/core/utils/database_manager.dart';
 import 'package:tqnia_chat/core/utils/extentions.dart';
 import 'package:tqnia_chat/views/widgets/text_widget.dart';
 
@@ -21,7 +22,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      context.goAndReplaceToOnBoarding();
+      if (DataBaseManager.isFirstVisit) {
+        context.goAndReplaceToOnBoarding();
+      } else {
+        context.goAndReplaceToHome();
+      }
     });
   }
 
