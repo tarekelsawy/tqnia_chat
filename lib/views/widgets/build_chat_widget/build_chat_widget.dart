@@ -19,7 +19,7 @@ class BuildChatWidget extends StatelessWidget {
     ChatCubit cubit = BlocProvider.of(context, listen: false);
     return Container(
       width: double.infinity,
-      height: 575.h,
+      height: 599.h,
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: BlocBuilder<ChatCubit, ChatStates>(builder: (context, state) {
         return cubit.messages1.isEmpty

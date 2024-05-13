@@ -16,7 +16,7 @@ class BuildTextFieldAndButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     ChatCubit cubit = BlocProvider.of(context);
     return Container(
-      margin: EdgeInsets.only(top: 10.h, bottom: 20.h, left: 20.w, right: 20.w),
+      margin: EdgeInsets.only(top: 18.h, bottom: 20.h, left: 20.w, right: 20.w),
       padding: EdgeInsets.symmetric(
         horizontal: 8.w,
       ),

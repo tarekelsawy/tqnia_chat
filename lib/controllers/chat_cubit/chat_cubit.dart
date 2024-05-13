@@ -30,7 +30,6 @@ class ChatCubit extends Cubit<ChatStates> {
   ChatCubit({required this.context, required this.messages1})
       : super(InitChatState()) {
     checkInternetConnection();
-    
   }
 
   void checkInternetConnection() {
@@ -38,8 +37,8 @@ class ChatCubit extends Cubit<ChatStates> {
       (InternetConnectionStatus status) {
         switch (status) {
           case InternetConnectionStatus.connected:
-          chat = model.startChat();
-          initChat();
+            chat = model.startChat();
+            initChat();
             // ignore: avoid_print
             print('Data connection is available.');
             break;
@@ -71,6 +70,7 @@ class ChatCubit extends Cubit<ChatStates> {
       messages1.insert(
           0, MessageModel(message: textController.text, isQuestion: true));
       textController.clear();
+      // scrollDown();
       emit(SentUserMessageState());
       sendToChatGPT();
     }

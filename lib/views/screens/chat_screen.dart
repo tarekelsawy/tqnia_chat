@@ -17,6 +17,7 @@ class ChatScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => ChatCubit(messages1: messages, context: context),
       child: const Scaffold(
+        resizeToAvoidBottomInset: true,
         body: Column(
           children: [
             BuildChatHeaderWidget(),
@@ -26,11 +27,11 @@ class ChatScreen extends StatelessWidget {
                   children: [
                     BuildChatWidget(),
                     BuildLoadingIcon(),
+                    BuildTextFieldAndButtonWidget(),
                   ],
                 ),
               ),
             ),
-            BuildTextFieldAndButtonWidget(),
           ],
         ),
       ),
